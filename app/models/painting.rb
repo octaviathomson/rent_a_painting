@@ -1,5 +1,8 @@
 class Painting < ApplicationRecord
-  has_one_attached :photo
+  validates :name, presence: true
+  validates :price, presence: true, inclusion: { in: (0..10_000_00) }
+  validates :description, presence: true
+  #has_one_attached :photo
   belongs_to :user
-  has_many :booking, dependent: :destroy
+  has_many :bookings, dependent: :destroy
 end
