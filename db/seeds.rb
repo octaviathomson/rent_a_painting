@@ -6,9 +6,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 
-=======
 require 'faker'
-user = User.create(
+user = User.create!(
 email: "diego@diego.com",
 password: "123456" )
 
