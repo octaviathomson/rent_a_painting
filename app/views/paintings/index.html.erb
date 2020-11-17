@@ -9,6 +9,8 @@
     <div class="card-trip">
       <div class="card-trip-infos">
         <div>
+          <%= cl_image_tag("ga0fexdof3lgqcjxddjg",
+              width: 400, height: 300, crop: :fill) %>
           <p><%= painting.name %></p>
           <p><%= painting.description %></p>
           <p><%= painting.price %></p>
@@ -22,5 +24,5 @@
 
 <%= link_to 'Back', paintings_path %>
 
-<!--   if painting.photo.attatched? -->
-<!--  cl_image_tag painting.photo.key %> -->
+
+
