@@ -1,5 +1,13 @@
 class PaintingsController < ApplicationController
 
+  def index
+    @paintings = Painting.all
+  end
+
+  def show
+    @painting = Painting.new
+  end
+
   def edit
   end
 
