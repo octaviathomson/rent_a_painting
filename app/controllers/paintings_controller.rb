@@ -12,8 +12,8 @@ class PaintingsController < ApplicationController
   end
 
   def destroy
-    @painting.destroy
-    redirect_to @painting, notice: 'The painting '
+    @painting.destroy(painting_params)
+    redirect_to @painting, notice: 'Your painting has been destroy'
   end
 
   private
