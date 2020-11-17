@@ -1,1 +1,16 @@
-show.html.erb
+<div class="container">
+  <h1><%= @painting.name %></h1>
+
+
+  <div class="painting-image">
+    <!-- insert cloudinary image -->
+  </div>
+
+  <div class="right-side">
+    <h2>Description</h2>
+    <p><%= @painting.description %></p>
+
+    <h2>Price</h2>
+    <p><%= @painting.price %> £ per day</p>
+  </div>
+</div>
