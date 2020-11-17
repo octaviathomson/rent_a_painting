@@ -1,2 +1,9 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<h1>APP NAME HERE</h1>
+
+
+<% if user_signed_in?%>
+  <%= link_to "Go to Your Dashboard", dashboard_path %>
+<% else %>
+  <%= link_to "Sign in here", new_user_session_path %>
+  <%= link_to "Sign up here", new_user_registration_path %>
+<% end %>
