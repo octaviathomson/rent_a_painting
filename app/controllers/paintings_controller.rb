@@ -11,6 +11,13 @@ class PaintingsController < ApplicationController
     else
       render :new
     end
+    
+  def index
+    @paintings = Painting.all
+  end
+
+  def show
+    @painting = Painting.new
   end
 
   def edit
