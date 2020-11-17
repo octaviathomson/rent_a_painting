@@ -17,6 +17,6 @@ password: "123456" )
 name: Faker::Color.color_name,
 user: user,
 price: rand(1..10_000),
-description: Faker::Movie )
+description: Faker::Movie.quote)
 end
 
