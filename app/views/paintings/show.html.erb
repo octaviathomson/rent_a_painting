@@ -4,7 +4,7 @@
 
   <div class="painting-image">
     <!-- insert cloudinary image -->
-    <%= cl_image_tag("ga0fexdof3lgqcjxddjg",
+    <%= cl_image_tag(@painting.photo.key,
       width: 400, height: 300, crop: :fill) %>
   </div>
 
