@@ -1,4 +1,13 @@
 class BookingsController < ApplicationController
+
+
+  def edit
+  end
+
+  def destroy
+    @booking.destroy(booking_params)
+    redirect_to @booking, notice: "Your booking has been cancelled "
+
   def new
     @booking = Booking.new
   end
@@ -16,5 +25,6 @@ class BookingsController < ApplicationController
 
   def booking_params
     params.require(:painting).permit(:start_date, :end_date, :painting_id, :user_id)
+
   end
 end
