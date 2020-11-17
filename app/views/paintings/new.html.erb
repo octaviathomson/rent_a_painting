@@ -1,6 +1,5 @@
 <h1>Rent out your painting</h1>
 
-<%= simple_form_for (@painting) do |f| %>
-  <%= f.input :name, label: "Name of your painting" %>
-  <%= f.submit class: "btn btn-primary" %>
-<% end %>
+<%= render 'form', painting: @painting %>
+<%= link_to 'Show', @painting %> |
+<%= link_to 'Back', paintings_path %>
