@@ -1,4 +1,5 @@
 class PaintingsController < ApplicationController
+  skip_before_action :authenticate_user!, only: :index
 
   def new
     @painting = Painting.new
@@ -6,8 +7,9 @@ class PaintingsController < ApplicationController
 
   def create
     @painting = Painting.new(painting_params)
+    @painting.user = current_user
     if @painting.save
-      redirect_to painting_path(@painting)
+      redirect_to painting_path(@painting), notice: 'Your painting has been listed for rent!'
     else
       render :new
     end
@@ -18,7 +20,7 @@ class PaintingsController < ApplicationController
   end
 
   def show
-    @painting = Painting.new
+    @painting = Painting.find(params[:id])
   end
 
   def edit
