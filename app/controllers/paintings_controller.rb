@@ -19,6 +19,11 @@ class PaintingsController < ApplicationController
     end
   end
 
+  def destroy
+    @painting.destroy(painting_params)
+    redirect_to @painting, notice: 'Your painting has been destroy'
+  end
+
   private
 
   def painting_params
