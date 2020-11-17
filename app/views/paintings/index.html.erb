@@ -1,15 +1,27 @@
+
 <p id="notice"><%= notice %></p>
 
-<h1>Paintings</h1>
+<h1>Find the right painting for you.</h1>
 
-<%= link_to "Rent out your own painting", new_painting_path %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Banner url</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-</table>
+<ul>
+  <% @paintings.each do |painting| %>
+    <div class="card-trip">
+    <div class="card-trip-infos">
+      <div>
+        <p><%= painting.name %></p>
+        <p><%= painting.description %></p>
+        <p><%= painting.price %></p>
+      </div>
+      <h2 class="card-trip-pricing">£99.99 per month</h2>
+      <!-- <div class="btn btn-primary">Book!</div> -->
+    </div>
+  </div>
+    <%= link_to 'More details', painting_path(painting), class: "btn btn-primary"%>
+  <% end %>
+</ul>
+
+
+<%= link_to 'Back', paintings_path %>
+
+
