@@ -1,26 +1,40 @@
+
+
 <div class="white_brown">
-  <div class="banner">
-    <div class="row">
-      <div class="col-md-6">
-        <h1>Art Rentals</h1>
-        <h3>Why not explore your taste risk free.</h3>
-        <h3>For a day, for a month or for a year,</h3>
-        <h3>trust the power of art in your home.</h3>
-        <% if user_signed_in?%>
-          <%= link_to "Go to dashboard", dashboard_path, class: "btn btn-light" %>
-        <% else %>
-          <%= link_to "Explore further", new_user_registration_path, class: "btn btn-dark btn-lg" %>
-          <%= link_to "Sign in", new_user_session_path, class: "btn btn-light" %>
-        <% end %>
-      </div>
-      <div class="col-md-6">
-        <div class="painting">
-          <%= cl_image_tag("m6gmzcwddkwl7ghw6fpu",
-            width: 600, height: 700, crop: :fill) %>
-        </div>
-      </div>
-    </div>
-  </div>
+        <section>
+
+          <div class="content">
+
+            <div class="textBox">
+
+              <h1>Art Rentals</h1>
+              <h3>Why not explore your taste risk free.</h3>
+              <h3>For a day, for a month or for a year,</h3>
+              <h3>trust the power of art in your home.</h3>
+              <% if user_signed_in?%>
+                <%= link_to "Go to dashboard", dashboard_path, class: "btn btn-light" %>
+              <% else %>
+                <%= link_to "Explore further", new_user_registration_path, class: "btn btn-dark btn-lg" %>
+                <%= link_to "Sign in", new_user_session_path, class: "btn btn-light" %>
+              <% end %>
+            </div>
+
+              <div class="imgBox">
+                <div class="klimt">
+                  <%= cl_image_tag("m6gmzcwddkwl7ghw6fpu",
+                    width: 500, height: 550, crop: :fill) %>
+                </div>
+              </div>
+
+            </div>
+
+          </section>
+
+          <script type="text/javascript">
+            function imgSlider(anything){
+              document.querySelector('klimt') = anything;
+            }
+          </script>
 </div>
 
 
