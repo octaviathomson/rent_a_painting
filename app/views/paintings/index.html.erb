@@ -5,34 +5,40 @@
   <h1>Find the right painting for you.</h1>
 </div>
 
-<div class="container mt-3 mb-5">
+<!-- <div class="container mt-3 mb-5"> -->
 
-  <div class="cards">
+  <div class="card-container d-flex">
 
-    <div class="container-index">
-    <ul>
-      <% @paintings.each do |painting| %>
-        <div class="card-trip">
-          <div class="card-trip-infos">
-            <div>
-            <% if painting.photo.attached? %>
-              <%= cl_image_tag(painting.photo.key,
-                  width: 400, height: 300, crop: :fill) %>
-              <% end %>
-              <p><%= painting.name %></p>
-              <p><%= painting.description %></p>
-              <p><%= painting.price %></p>
+
+      <ul>
+        <div class="cards">
+        <% @paintings.each do |painting| %>
+          <div class="card-product">
+            <div class="card-product-infos">
+              <div>
+                <% if painting.photo.attached? %>
+                  <div class="image-display"><%= cl_image_tag(painting.photo.key,
+                    width: 400, height: 300, crop: :fill) %></div>
+                  <% end %>
+                  <div class="row justify-content-center">
+                    <h6><%= painting.name %></h6>
+                  </div>
+                  <p><%= painting.description %></p>
+                  <h6>£<%= painting.price %></h6>
+              </div>
+            </div>
+            <div class="row justify-content-center">
+              <%= link_to 'More details', painting_path(painting), class: "btn btn-dark"%>
             </div>
         </div>
-      </div>
-        <%= link_to 'More details', painting_path(painting), class: "btn btn-dark"%>
-      <% end %>
-    </ul>
-    </div>
+         <% end %>
+        </div>
+      </ul>
+
 
   </div>
 
-</div>
+<!-- </div> -->
 
 
 <div class="row justify-content-center">
