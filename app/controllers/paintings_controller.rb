@@ -9,7 +9,7 @@ class PaintingsController < ApplicationController
     @painting = Painting.new(painting_params)
     @painting.user = current_user
     if @painting.save
-      redirect_to painting_path(@painting), notice: 'Your painting has been listed for rent!'
+      redirect_to dashboard_path, notice: 'Your painting has been listed for rent!'
     else
       render :new
     end
