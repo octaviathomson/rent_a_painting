@@ -1,6 +1,5 @@
 class BookingsController < ApplicationController
 
-
   def edit
   end
 
@@ -12,6 +11,10 @@ class BookingsController < ApplicationController
   def new
     @booking = Booking.new
     @painting = Painting.find(params[:painting_id])
+  end
+
+  def show
+    @booking = Booking.new(params[:id])
   end
 
   def create
@@ -29,6 +32,8 @@ class BookingsController < ApplicationController
     private
 
   def booking_params
+
+   
     params.require(:booking).permit(:start_date, :end_date)
 
   end

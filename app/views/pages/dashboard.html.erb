@@ -2,5 +2,12 @@
 
 <h6>Your listings</h6>
 
+<div class="user-listings">
+  <h2><%= @painting.show %></h2>
+
+</div>
+
+  <%= link_to 'Back', paintings_path %>
+
 <%= link_to "log out", destroy_user_session_path, method: :delete %>
 
