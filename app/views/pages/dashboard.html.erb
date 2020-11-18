@@ -18,8 +18,10 @@
             <p>You do not have any bookings yet!</p>
             <%= link_to 'View paintings here', paintings_path %><br>
             <% @bookings.each do |booking|  %>
+             <% if booking.painting.photo.attached? %>
               <%= cl_image_tag(booking.painting.photo.key,
               width: 400, height: 300, crop: :fill) %>
+              <% end %>
               <p><%= booking.painting.name %></p>
               <p><%= booking.start_date %> until <%= booking.end_date %> </p>
             <% end %>
@@ -36,9 +38,11 @@
           <% else %>
             <% @paintings.each do |painting| %>
               <%= painting.name %> <br>
-              <%= cl_image_tag(painting.photo.key,
-            width: 400, height: 300, crop: :fill) %> <br>
+                <% if painting.photo.attached? %>
+                  <%= cl_image_tag(painting.photo.key,
+                  width: 400, height: 300, crop: :fill) %> <br>
                 <% end %>
+              <% end %>
               <% @incoming_bookings.each do |in_booking|%>
                 <%= in_booking.status %>
                 <p>is booked from <%= in_booking.start_date %> until <%= in_booking.end_date %> </p>
