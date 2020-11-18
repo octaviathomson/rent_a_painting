@@ -1,6 +1,5 @@
 <div class="container pt-5">
   <div class="row justify-content-center">
-    <div class="col-12 col-sm-4 col-lg-4">
 
 
       <%= simple_form_for(@painting) do |f| %>
@@ -18,11 +17,14 @@
         <%= f.input :photo, as: :file %>
       </div>
 
-      <div class="form-actions">
-        <%= f.submit class: "btn btn-outline-dark btn-lg w-100"%>
-      </div>
-      <% end %>
+      <div class="row justify-content-center">
 
-    </div>
+        <div class="form-actions">
+          <%= f.submit class: "btn btn-outline-dark  w-70"%>
+        </div>
+        <% end %>
+
+      </div>
+
   </div>
 </div>
