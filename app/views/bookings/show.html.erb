@@ -3,9 +3,9 @@
 
 
   <div class="booking-details">
-    <p><%= booking.status %></p>
+    <p><%= @booking.status %></p>
     <p>You have booked <%= @painting.name %></p>
-    <p>For the period of <%= booking.start_date %> to <%= booking.end_date %></p>
+    <p>For the period of <%= @booking.start_date %> to <%= @booking.end_date %></p>
   </div>
 
   <div class="painting-image">
@@ -17,10 +17,10 @@
   <div class="painting-details">
     <p><%= @painting.artist %></p>
     <p>You have booked <%= @painting.name %></p>
-    <p>For the period of <%= booking.start_date %> to <%= booking.end_date %></p>
+    <p>For the period of <%= @booking.start_date %> to <%= @booking.end_date %></p>
   </div>
 
 
-  <%= link_to 'Make changes to your booking', bookings_path %>
+  <%= link_to 'Make changes to your booking', edit_booking_path(@booking) %>
   <%= link_to 'Return to your dashboard', dashboard_path %>
 </div>
