@@ -1,16 +1,22 @@
-<div class="container">
-<div>
-<h1>Rent-a-Pic</h1>
-<h2>Rent-a-pic is a new service that allows you to rent visual arts.</h2>
-<h3>Wanting to impress your in-laws at family dinner ? Why not hanging a Picasso in your living room to create that "waw" effect! </h3>
-<h3>Wanting to display some art but not wanting to have to move it to your future place ? we also offer long term solution.</h3>
-<h4>For a day or for a year, trust the power of art in your own home.</h4>
+
+<div class="banner">
+  <h1>Art Rentals</h1>
+  <h3>Why not explore your taste risk free.</h3>
+  <h3>For a day, for a month or for a year,</h3>
+  <h3>trust the power of art in your home.</h3>
+  <div class="row">
+    <% if user_signed_in?%>
+      <%= link_to "Go to bashboard", dashboard_path, class: "btn btn-light" %>
+    <% else %>
+      <%= link_to "Explore further", new_user_registration_path, class: "btn btn-dark btn-lg" %>
+      <%= link_to "Sign in", new_user_session_path, class: "btn btn-light" %>
+    <% end %>
+  </div>
 </div>
 
-<% if user_signed_in?%>
-  <%= link_to "Go to Your Dashboard", dashboard_path %>
-<% else %>
-  <%= link_to "Sign in here", new_user_session_path %>
-  <%= link_to "Sign up here", new_user_registration_path %>
-<% end %>
-</div>
+<img src="..app/assets/images/the_kiss.jpg" alt="The Kiss">
+
+
+
+
+
