@@ -9,8 +9,10 @@
 
         <div class="painting-image">
           <!-- insert cloudinary image -->
+        <% if painting.photo.attached? %>
           <%= cl_image_tag(@painting.photo.key,
             width: 400, height: 300, crop: :fill) %>
+          <% end %>
         </div>
 
         <div class="right-side">

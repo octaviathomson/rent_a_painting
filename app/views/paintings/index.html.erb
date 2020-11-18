@@ -11,8 +11,10 @@
     <div class="card-trip">
       <div class="card-trip-infos">
         <div>
+        <% if painting.photo.attached? %>
           <%= cl_image_tag(painting.photo.key,
               width: 400, height: 300, crop: :fill) %>
+          <% end %>
           <p><%= painting.name %></p>
           <p><%= painting.description %></p>
           <p><%= painting.price %></p>
