@@ -1,7 +1,5 @@
 <div class="container">
-  <h1>Edit your booking for <%= @painting.name %></h1>
-
+  <h1>Edit your booking </h1>
+  <%= render partial: 'bookings/form', locals: { model: @booking, url: booking_path(@booking), verb: :patch }%>
 </div>
 
-add form
-  <%= link_to 'Cancel my booking', booking_path(booking), method: :delete, data: { confirm: "Are you sure you wish to cancel your booking?" } %>
