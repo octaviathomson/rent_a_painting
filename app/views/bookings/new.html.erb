@@ -1,1 +1,1 @@
-<%= render 'form', painting: @painting, booking: @booking %>
+<%= render partial:'bookings/form', locals: { model: [@painting, @booking], url: painting_bookings_path, verb: :post }%>

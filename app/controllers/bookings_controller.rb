@@ -1,11 +1,13 @@
 class BookingsController < ApplicationController
 
   def edit
+    @booking = Booking.find(params[:id])
   end
 
   def destroy
-    @booking.destroy(booking_params)
-    redirect_to @booking, notice: "Your booking has been cancelled "
+    @booking = Booking.find(params[:id])
+    @booking.destroy
+    redirect_to dashboard_path, notice: "Your booking has been cancelled "
   end
 
   def new
@@ -33,9 +35,6 @@ class BookingsController < ApplicationController
     private
 
   def booking_params
-
-
     params.require(:booking).permit(:start_date, :end_date)
-
   end
 end
