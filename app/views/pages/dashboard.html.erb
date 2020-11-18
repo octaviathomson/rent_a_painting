@@ -14,14 +14,14 @@
           UPCOMING BOOKINGS
       <div class= "upcoming-bookings">
         <% if user_signed_in? && @user.bookings.present? %>
-          <% @bookings.each do |booking|  %>
+          <% @bookings.each do |booking| %>
+            <p><%= booking.painting.name %></p>
+            <p><%= booking.start_date %> until <%= booking.end_date %> </p>
+            <%= link_to 'View Details', booking_path(booking)%><br>
             <% if booking.painting.photo.attached? %>
               <%= cl_image_tag(booking.painting.photo.key,
               width: 400, height: 300, crop: :fill) %>
             <% end %>
-            <p><%= booking.painting.name %></p>
-            <p><%= booking.start_date %> until <%= booking.end_date %> </p>
-            <%= link_to 'View Details', booking_path(booking)%><br>
           <% end %>
         <% else %>
           <p>You do not have any bookings yet!</p>
@@ -32,22 +32,21 @@
 
     <div class="main-header">
       <div class= "Your listings">
-        <% if user_signed_in? %>
-          <% if @user.paintings.present? == false %>
-            <p> You have not uploaded any paintings yet!</p>
-          <% else %>
-            <% @paintings.each do |painting| %>
-              <%= painting.name %> <br>
+        <% if user_signed_in? && @user.paintings.present? %>
+            <% @paintings.each do |painting| %><br>
+              <%= link_to "View your listing for #{painting.name.capitalize}", painting_path(painting) %><br>
                 <% if painting.photo.attached? %>
                   <%= cl_image_tag(painting.photo.key,
                   width: 400, height: 300, crop: :fill) %> <br>
                 <% end %>
-              <% end %>
-              <% @incoming_bookings.each do |in_booking|%>
-                <%= in_booking.status %>
-                <p>is booked from <%= in_booking.start_date %> until <%= in_booking.end_date %> </p>
-              <% end %>
-          <% end %>
+            <% end %>
+            <% @incoming_bookings.each do |in_booking|%>
+              <%= in_booking.status %>
+              <p>is booked from <%= in_booking.start_date %> until <%= in_booking.end_date %> </p>
+            <% end %>
+        <% else %>
+          <p> You have not uploaded any paintings yet!</p>
+          <%= link_to 'Upload your own paintings for rent', new_painting_path %><br>
         <% end %>
       </div>
     </div>
