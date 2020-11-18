@@ -22,5 +22,7 @@
 
 
   <%= link_to 'Make changes to your booking', edit_booking_path(@booking) %><br>
+  <%= link_to 'Cancel my booking', booking_path(@booking), method: :delete, data: { confirm: "Are you sure you wish to cancel your booking?" } %>
+
   <%= link_to 'Return to your dashboard', dashboard_path %>
 </div>
