@@ -1,47 +1,60 @@
-<h1>Dashboard</h1>
+<div class="grid-container">
+  <header class="header">
+    <h2>Dashboard</h2>
+  </header>
+  <aside class="sidenav"></aside>
+  <main class="main">
 
-<h6>Your bookings</h6>
+    <div class="main-header">
+      <h6>Your bookings</h6>
+    </div>
 
-UPCOMING BOOKINGS
-<div class= "upcoming-bookings">
-  <% if user_signed_in? %>
-    <% if @user.bookings.present? == false %>
-      <p>You do not have any bookings yet!</p>
-      <%= link_to 'View paintings here', paintings_path %><br>
 
-    <% else %>
-      <% @bookings.each do |booking|  %>
-        <%= cl_image_tag(booking.painting.photo.key,
-        width: 400, height: 300, crop: :fill) %>
-        <p><%= booking.painting.name %></p>
-        <p><%= booking.start_date %> until <%= booking.end_date %> </p>
-        <%= link_to 'View Details', booking_path(booking) %><br>
-
-       <% end %>
-    <% end %>
-  <% end %>
-</div>
-
-<div class= "Your listings">
-  <% if user_signed_in? %>
-    <% if @user.paintings.present? == false %>
-      <p> You have not uploaded any paintings yet!</p>
-    <% else %>
-      <% @paintings.each do |painting| %>
-        <%= painting.name %> <br>
-        <%= cl_image_tag(painting.photo.key,
-      width: 400, height: 300, crop: :fill) %> <br>
+    <div class="main-header">
+          UPCOMING BOOKINGS
+      <div class= "upcoming-bookings">
+        <% if user_signed_in? %>
+          <% if @user.bookings.present? == false %>
+            <p>You do not have any bookings yet!</p>
+            <%= link_to 'View paintings here', paintings_path %><br>
+            <% @bookings.each do |booking|  %>
+              <%= cl_image_tag(booking.painting.photo.key,
+              width: 400, height: 300, crop: :fill) %>
+              <p><%= booking.painting.name %></p>
+              <p><%= booking.start_date %> until <%= booking.end_date %> </p>
+            <% end %>
           <% end %>
-        <% @incoming_bookings.each do |in_booking|%>
-          <%= in_booking.status %>
-          <p>is booked from <%= in_booking.start_date %> until <%= in_booking.end_date %> </p>
         <% end %>
-    <% end %>
-  <% end %>
-</div>
+      </div>
+    </div>
 
+    <div class="main-header">
+      <div class= "Your listings">
+        <% if user_signed_in? %>
+          <% if @user.paintings.present? == false %>
+            <p> You have not uploaded any paintings yet!</p>
+          <% else %>
+            <% @paintings.each do |painting| %>
+              <%= painting.name %> <br>
+              <%= cl_image_tag(painting.photo.key,
+            width: 400, height: 300, crop: :fill) %> <br>
+                <% end %>
+              <% @incoming_bookings.each do |in_booking|%>
+                <%= in_booking.status %>
+                <p>is booked from <%= in_booking.start_date %> until <%= in_booking.end_date %> </p>
+              <% end %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
 
-  <%= link_to 'Back', paintings_path %>
+    </main>
 
-<%= link_to "log out", destroy_user_session_path, method: :delete %>
+  <footer class="footer">
 
+    <div class="row justify-content-center">
+      <%= link_to 'Back', paintings_path %>
+
+      <%= link_to "log out", destroy_user_session_path, method: :delete %>
+    </div>
+  </footer>

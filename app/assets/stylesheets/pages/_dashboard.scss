@@ -1,0 +1,48 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  grid-template-rows: 50px 1fr 50px;
+  grid-template-areas:
+    "sidenav header"
+    "sidenav main"
+    "sidenav footer";
+  height: 100vh;
+}
+
+/* Give every child element its grid name */
+.header {
+  grid-area: header;
+  background-color: #3C403D;
+  text-align: center;
+}
+
+.header h2 {
+  color: white;
+}
+
+.sidenav {
+  grid-area: sidenav;
+  background-color: #F1B24A;
+}
+
+.main {
+  grid-area: main;
+  background-color: white;
+}
+
+.footer {
+  grid-area: footer;
+  background-color: #3C403D;
+  text-align: center;
+}
+
+
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+  padding: 20px;
+  height: 150px;
+  background-color: #e3e4e6;
+  color: slategray;
+}
