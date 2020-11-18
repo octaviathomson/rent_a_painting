@@ -1,0 +1,26 @@
+<div class="container">
+  <h1>Booking Confirmation</h1>
+
+
+  <div class="booking-details">
+    <p><%= booking.status %></p>
+    <p>You have booked <%= @painting.name %></p>
+    <p>For the period of <%= booking.start_date %> to <%= booking.end_date %></p>
+  </div>
+
+  <div class="painting-image">
+    <!-- insert cloudinary image -->
+    <%= cl_image_tag(@painting.photo.key,
+      width: 400, height: 300, crop: :fill) %>
+  </div>
+
+  <div class="painting-details">
+    <p><%= @painting.artist %></p>
+    <p>You have booked <%= @painting.name %></p>
+    <p>For the period of <%= booking.start_date %> to <%= booking.end_date %></p>
+  </div>
+
+
+  <%= link_to 'Make changes to your booking', bookings_path %>
+  <%= link_to 'Return to your dashboard', dashboard_path %>
+</div>
