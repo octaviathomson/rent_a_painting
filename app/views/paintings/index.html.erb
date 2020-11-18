@@ -3,7 +3,7 @@
 
 <h1>Find the right painting for you.</h1>
 
-
+<div class="flex-container">
 <ul>
   <% @paintings.each do |painting| %>
     <div class="card-trip">
@@ -20,6 +20,7 @@
     <%= link_to 'More details', painting_path(painting), class: "btn btn-dark"%>
   <% end %>
 </ul>
+</div>
 
 
 <%= link_to 'Back', paintings_path %>
