@@ -1,1 +1,30 @@
 // Specific CSS for your home-page
+@import url(https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Poppins:wght@100;200&display=swap);
+
+.banner, {
+  padding: 200px 100px;
+}
+.row {
+  padding: 25px 15px;
+}
+h1 {
+  font-family: 'Poppins', sans-serif;
+}
+
+h3 {
+  font-family: Poppins;
+}
+
+.btn {
+  border-radius: 50px
+}
+
+.btn-light {
+  font-family: Poppins;
+  padding: 0px, 15px;
+}
+
+.btn-dark {
+  font-family: 'Poppins', sans-serif;
+}
