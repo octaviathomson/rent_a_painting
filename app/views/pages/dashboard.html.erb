@@ -1,11 +1,37 @@
 <h1>Dashboard</h1>
 
-<h6>Your listings</h6>
+<h6>Your bookings</h6>
 
-<div class="user-listings">
-  <h2><%= @painting.show %></h2>
-
+UPCOMING BOOKINGS
+<div class= "upcoming-bookings">
+  <% if user_signed_in? %>
+    <% @bookings.each do |booking|  %>
+      <%= cl_image_tag(booking.painting.photo.key,
+      width: 400, height: 300, crop: :fill) %>
+      <p><%= booking.painting.name %></p>
+      <p><%= booking.start_date %> until <%= booking.end_date %> </p>
+    <% end %>
+  <% end %>
 </div>
+
+<div class= "Your listings">
+  <% if user_signed_in? %>
+    <% if @user.paintings.present? == false %>
+      <p> You have not uploaded any paintings yet!</p>
+    <% else %>
+      <% @paintings.each do |painting| %>
+        <%= painting.name %> <br>
+        <%= cl_image_tag(painting.photo.key,
+      width: 400, height: 300, crop: :fill) %> <br>
+          <% end %>
+        <% @incoming_bookings.each do |in_booking|%>
+          <%= in_booking.status %>
+          <p>is booked from <%= in_booking.start_date %> until <%= in_booking.end_date %> </p>
+        <% end %>
+    <% end %>
+  <% end %>
+</div>
+
 
   <%= link_to 'Back', paintings_path %>
 
