@@ -1,0 +1,14 @@
+<%= simple_form_for [@painting, @booking] do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.input :start_date, label: "Start Date" %>
+    <%= f.input :end_date, label: "End date" %>
+  </div>
+
+   <div class="form-actions">
+    <%= f.submit class: "btn btn-primary"%>
+  </div>
+
+<% end %>
