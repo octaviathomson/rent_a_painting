@@ -1,20 +1,27 @@
+<div class="white_brown">
+  <div class="banner">
+    <h1>Art Rentals</h1>
+    <h3>Why not explore your taste risk free.</h3>
+    <h3>For a day, for a month or for a year,</h3>
+    <h3>trust the power of art in your home.</h3>
+    <div class="row">
+      <% if user_signed_in?%>
+        <%= link_to "Go to bashboard", dashboard_path, class: "btn btn-light" %>
+      <% else %>
+        <%= link_to "Explore further", new_user_registration_path, class: "btn btn-dark btn-lg" %>
+        <%= link_to "Sign in", new_user_session_path, class: "btn btn-light" %>
+      <% end %>
+    </div>
 
-<div class="banner">
-  <h1>Art Rentals</h1>
-  <h3>Why not explore your taste risk free.</h3>
-  <h3>For a day, for a month or for a year,</h3>
-  <h3>trust the power of art in your home.</h3>
-  <div class="row">
-    <% if user_signed_in?%>
-      <%= link_to "Go to bashboard", dashboard_path, class: "btn btn-light" %>
-    <% else %>
-      <%= link_to "Explore further", new_user_registration_path, class: "btn btn-dark btn-lg" %>
-      <%= link_to "Sign in", new_user_session_path, class: "btn btn-light" %>
-    <% end %>
+<!--     <div class="position">
+      <%= cl_image_tag("m6gmzcwddkwl7ghw6fpu",
+        width: 600, height: 700, crop: :fill) %>
+    </div> -->
+
   </div>
 </div>
 
-<img src="./app/assets/images/the_kiss.jpg" alt="The Kiss">
+
 
 
 

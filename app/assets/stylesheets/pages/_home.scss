@@ -14,6 +14,7 @@ h1 {
 
 h3 {
   font-family: Poppins;
+  font-weight: lighter;
 }
 
 .btn {
@@ -27,4 +28,12 @@ h3 {
 
 .btn-dark {
   font-family: 'Poppins', sans-serif;
+}
+
+.white_brown {
+background: linear-gradient(to right, #F8F5F5 65%, white 50%);
+}
+
+.white {
+  background: white;
 }
