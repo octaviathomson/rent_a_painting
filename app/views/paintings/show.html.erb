@@ -21,8 +21,8 @@
           <p><%= @painting.price %> £ per day</p>
         </div>
 
-        <%= link_to 'Back', paintings_path %>
-        <%= link_to 'Book', new_painting_booking_path(@painting) %>
+        <%= link_to 'Back', paintings_path, class: "btn btn-light" %>
+        <%= link_to 'Book', new_painting_booking_path(@painting), class: "btn btn-dark" %>
       </div>
 
   </div>
