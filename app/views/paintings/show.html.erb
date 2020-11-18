@@ -1,21 +1,29 @@
-<div class="container">
-  <h1><%= @painting.name %></h1>
+<div class="container pt-5">
+
+      <div class="card-white" id="introduction">
+
+        <div class="row justify-content-center">
+          <h1><%= @painting.name %></h1>
+        </div>
 
 
-  <div class="painting-image">
-    <!-- insert cloudinary image -->
-    <%= cl_image_tag(@painting.photo.key,
-      width: 400, height: 300, crop: :fill) %>
+        <div class="painting-image">
+          <!-- insert cloudinary image -->
+          <%= cl_image_tag(@painting.photo.key,
+            width: 400, height: 300, crop: :fill) %>
+        </div>
+
+        <div class="right-side">
+          <h3>Description</h3>
+          <p><%= @painting.description %></p>
+
+          <h3>Price</h3>
+          <p><%= @painting.price %> £ per day</p>
+        </div>
+
+        <%= link_to 'Back', paintings_path %>
+        <%= link_to 'Book', new_painting_booking_path(@painting) %>
+      </div>
+
   </div>
-
-  <div class="right-side">
-    <h2>Description</h2>
-    <p><%= @painting.description %></p>
-
-    <h2>Price</h2>
-    <p><%= @painting.price %> £ per day</p>
-  </div>
-
-  <%= link_to 'Back', paintings_path %>
-  <%= link_to 'Book', new_painting_booking_path(@painting) %>
 </div>
