@@ -5,25 +5,33 @@
   <h1>Find the right painting for you.</h1>
 </div>
 
-<div class="container-index">
-<ul>
-  <% @paintings.each do |painting| %>
-    <div class="card-trip">
-      <div class="card-trip-infos">
-        <div>
-        <% if painting.photo.attached? %>
-          <%= cl_image_tag(painting.photo.key,
-              width: 400, height: 300, crop: :fill) %>
-          <% end %>
-          <p><%= painting.name %></p>
-          <p><%= painting.description %></p>
-          <p><%= painting.price %></p>
+<div class="container mt-3 mb-5">
+
+  <div class="cards">
+
+    <div class="container-index">
+    <ul>
+      <% @paintings.each do |painting| %>
+        <div class="card-trip">
+          <div class="card-trip-infos">
+            <div>
+            <% if painting.photo.attached? %>
+              <%= cl_image_tag(painting.photo.key,
+                  width: 400, height: 300, crop: :fill) %>
+              <% end %>
+              <p><%= painting.name %></p>
+              <p><%= painting.description %></p>
+              <p><%= painting.price %></p>
+            </div>
         </div>
+      </div>
+        <%= link_to 'More details', painting_path(painting), class: "btn btn-dark"%>
+      <% end %>
+    </ul>
     </div>
+
   </div>
-    <%= link_to 'More details', painting_path(painting), class: "btn btn-dark"%>
-  <% end %>
-</ul>
+
 </div>
 
 
