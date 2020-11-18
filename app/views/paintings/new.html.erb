@@ -1,9 +1,14 @@
-<h1>Rent out your painting</h1>
+
+<div class="row justify-content-center">
+  <h1>Rent out your painting</h1>
+</div>
 
 <p id="notice"><%= notice %></p>
 
 
 <%= render 'form', painting: @painting %>
 
+<div class="row justify-content-center">
+  <%= link_to 'Back', paintings_path %>
+</div>
 
-<%= link_to 'Back', paintings_path %>
