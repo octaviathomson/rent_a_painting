@@ -22,6 +22,7 @@ class PaintingsController < ApplicationController
   def show
     @painting = Painting.find(params[:id])
     @bookings = @painting.bookings
+    @user = @painting.user
   end
 
   def edit

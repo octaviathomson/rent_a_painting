@@ -31,7 +31,8 @@
            <% end %>
           <%= link_to 'Edit your listing', edit_painting_path(@painting.bookings), class: "btn btn-dark" %>
           <%= link_to 'Delete your listing', painting_path(@painting), class: "btn btn-dark", method: :delete, data: { confirm: "Are you sure you wish to delete your listing?" }  %>
-        <% elsif user_signed_in? && !@painting.user %>
+        <% elsif user_signed_in?%>
+          <p>Posted by: <%= @user.first_name %></p>
           <%= link_to 'Book', new_painting_booking_path(@painting), class: "btn btn-dark" %>
         <% end %>
 
