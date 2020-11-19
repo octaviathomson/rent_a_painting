@@ -1,5 +1,6 @@
 <div class="container pt-5">
 
+
       <div class="card-white" id="introduction">
 
         <div class="row justify-content-center">
@@ -26,11 +27,32 @@
           <p> £ <%= @painting.price %>per day</p>
         </div>
 
+
+
+
         <% if @painting.user == current_user %>
           <% @bookings.each do |booking| %>
             <p>Your booking requests:</p>
             <%= booking.status %>
-            <%= button_to "Approve booking", booking_path(booking) %>
+
+
+    <%= simple_form_for booking do |f| %>
+
+        <%= f.input :status, input_html: {value: "Approved"}, as: :hidden %>
+
+            <%= f.submit "Approve", class: "btn btn-outline-dark  w-70"%>
+
+           <% end %>
+    <%= simple_form_for booking do |f| %>
+
+        <%= f.input :status, input_html: {value: "Declined"}, as: :hidden %>
+
+            <%= f.submit "Decline", class: "btn btn-outline-dark  w-70"%>
+
+    <% end %>
+
+
+
            <% end %>
 
           <%= link_to 'Edit your listing', edit_painting_path(@painting), class: "btn btn-dark" %>
@@ -38,10 +60,15 @@
         <% elsif user_signed_in?%>
           <p>Posted by: <%= @user.first_name %></p>
           <!-- add reviews for the painting owner? -->
+          <div class="Booking-form">
+            <%= render partial:'bookings/form', locals: { model: [@painting, @booking], url: painting_bookings_path(@painting), verb: :post }%>
+          </div>
+        <% end %>
+
 
           <div class="row justify-content-center">
 
-            <%= link_to 'Book', new_painting_booking_path(@painting), class: "btn btn-dark" %> <br>
+
 
 
         <% end %>
