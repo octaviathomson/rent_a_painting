@@ -32,6 +32,7 @@ class PaintingsController < ApplicationController
 
   def show
     @painting = Painting.find(params[:id])
+    @booking = Booking.new
     @bookings = @painting.bookings
     @user = @painting.user
   end
@@ -41,8 +42,9 @@ class PaintingsController < ApplicationController
   end
 
   def update
+    @painting = Painting.find(params[:id])
     if @painting.update(painting_params)
-      redirect_to @painting, notice: 'Your painting is beautiful and ready to be displayed'
+      redirect_to painting_path(@painting), notice: 'Your painting is beautiful and ready to be displayed'
     else
       render :edit
     end
@@ -52,7 +54,7 @@ class PaintingsController < ApplicationController
     @painting = Painting.find(params[:id])
     @painting.destroy
     flash[:notice] = "Your painting has been destroy"
-    redirect_to paintings_path
+    redirect_to dashboard_path
   end
 
   private
