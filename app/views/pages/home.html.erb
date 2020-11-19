@@ -20,19 +20,28 @@
             </div>
 
               <div class="imgBox">
-                <div class="klimt">
                   <%= cl_image_tag("m6gmzcwddkwl7ghw6fpu",
-                    width: 500, height: 550, crop: :fill) %>
-                </div>
+                    class: "klimt", crop: :fill) %>
               </div>
 
             </div>
+
+            <ul class="thumb">
+              <li><%= cl_image_tag("m6gmzcwddkwl7ghw6fpu",
+              class: "thumbsize", onClick: "imgSlider('m6gmzcwddkwl7ghw6fpu')", crop: :fill) %> <!-- onclick="imgSlider('m6gmzcwddkwl7ghw6fpu')" --> </li>
+              <li><%= cl_image_tag("nmjh9rl6033puar42qfd",
+              class: "thumbsize", onClick: "imgSlider('nmjh9rl6033puar42qfd')", crop: :fill) %> <!-- onclick="imgSlider('nfnf92zo71vojtmalhqm')" --> </li>
+              <li><%= cl_image_tag("nlkoz83gb2fy68n06ifr",
+              class: "thumbsize", onClick: "imgSlider('nlkoz83gb2fy68n06ifr')", crop: :fill) %>  <!-- onclick="imgSlider('owookw4jh9xx9e4isfkp8x575gt9')" --> </li>
+            </ul>
 
           </section>
 
           <script type="text/javascript">
             function imgSlider(anything){
-              document.querySelector('klimt') = anything;
+              const baseUrl = "http://res.cloudinary.com/dy9hjwpmu/image/upload/c_fill/"
+              const klimtElement = document.querySelector(".klimt")
+              klimtElement.src = baseUrl + anything
             }
           </script>
 </div>
