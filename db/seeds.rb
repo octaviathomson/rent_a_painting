@@ -7,6 +7,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 require "open-uri"
 require 'faker'
+require 'json'
+require 'pry'
+
 
 User.destroy_all
 user = User.create!(
@@ -15,14 +18,29 @@ password: "123456" )
 
 Painting.destroy_all
 
-10.times do
-  file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
-  new_painting = Painting.create!(
+file = URI.open("https://api.unsplash.com/search/photos/?page=1&per_page=100&client_id=oXs_0PdpJBx2lWawX7ReqSwfGJHQ9nadTC9SMpH7ZvM&query=painting")
+parsed_file = JSON.parse(file.read)
+image_results = parsed_file["results"]
+
+image_results.each do |image_result|
+  url = image_result["urls"]["regular"]
+  file = URI.open(url)
+  new_painting = Painting.new(
     name: Faker::Color.color_name,
     user: user,
     artist: Faker::Artist.name,
-    price: rand(1..10_000),
+    price: rand(1..5000),
     description: Faker::Movie.quote)
-  new_painting.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+  new_painting.photo.attach(io: file, filename: 'unsplash.png', content_type: 'image/png')
+  new_painting.save!
 end
 
+
+
+# parsed_file.each (or some kind iteration - check what parsed_file gives you and see how to iterate over it so that it would return one url per painting) do |painting|
+
+# …
+# all the faker bits for name and user etc.
+# ….
+# new_painting.photo.attach(io: url, etc.)
+# end iteration
