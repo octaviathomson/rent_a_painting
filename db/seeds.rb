@@ -29,6 +29,7 @@ image_results.each do |image_result|
     name: Faker::Color.color_name,
     user: user,
     artist: Faker::Artist.name,
+    address: Faker::Address.full_address
     price: rand(1..5000),
     description: Faker::Movie.quote)
   new_painting.photo.attach(io: file, filename: 'unsplash.png', content_type: 'image/png')
