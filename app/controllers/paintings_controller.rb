@@ -20,7 +20,8 @@ class PaintingsController < ApplicationController
        @markers = @paintings.geocoded.map do |painting|
       {
         lat: painting.latitude,
-        lng: painting.longitude
+        lng: painting.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { painting: painting })
       }
     end
   end

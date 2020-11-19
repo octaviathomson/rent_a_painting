@@ -1,0 +1,7 @@
+
+<% if painting.photo.attached? %>
+      <div class="image-display"><%= cl_image_tag(painting.photo.key,
+        width: 100, height: 100, crop: :fill) %></div>
+<% end %>
+<h2><%= painting.name %></h2>
+<p><%= painting.address %></p>
