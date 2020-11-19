@@ -1,6 +1,6 @@
 .grid-container {
   display: grid;
-  grid-template-columns: 240px 1fr;
+  grid-template-columns: 100px 1fr;
   grid-template-rows: 50px 1fr 50px;
   grid-template-areas:
     "sidenav header"
@@ -12,17 +12,13 @@
 /* Give every child element its grid name */
 .header {
   grid-area: header;
-  background-color: #3C403D;
+  background-color: white;
   text-align: center;
-}
-
-.header h2 {
-  color: white;
 }
 
 .sidenav {
   grid-area: sidenav;
-  background-color: #F1B24A;
+  background-color: white;
 }
 
 .main {
@@ -30,14 +26,40 @@
   background-color: white;
 }
 
-
-.main-header {
-  display: flex;
-  justify-content: space-between;
-  margin: 20px;
-  padding: 20px;
+.first-header {
+  margin-left: 50px;
+  margin-right: 100px;
+  padding: 120px;
   box-shadow: 0 10px 30px rgba(0,0,0,.1);
-  background-color: white;
-  color: slategray;
-  border-radius: 4px;
+  color: white;
+  border-radius: 10px;
+  background: url(backgrounddashboard.jpeg);
+  margin-bottom: 80px;
 }
+
+.first-header h3 {
+  text-shadow: 2px 2px 8px black;
+}
+
+.first-header h1 {
+  text-shadow: 2px 2px 8px black;
+}
+
+.first-container {
+  display: flex;
+  margin-left: 50px;
+  margin-top: 30px;
+  margin-bottom: 80px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.1);
+  border-radius: 10px;
+}
+
+.second-container {
+  display: flex;
+  margin-left: 50px;
+  margin-top: 30px;
+  margin-bottom: 100px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.1);
+  border-radius: 10px;
+}
+
