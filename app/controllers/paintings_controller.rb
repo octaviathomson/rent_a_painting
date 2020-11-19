@@ -16,8 +16,12 @@ class PaintingsController < ApplicationController
   end
 
   def index
+    if params[:query].present?
+      @paintings = Painting.where("artist ILIKE ?", "%#{params[:query]}%")
+    else
     @paintings = Painting.all
-       @markers = @paintings.geocoded.map do |painting|
+    end
+    @markers = @paintings.geocoded.map do |painting|
       {
         lat: painting.latitude,
         lng: painting.longitude,

@@ -2,6 +2,17 @@
   <h1>Find the right painting for you.</h1>
 </div>
 
+<div>
+<%= form_tag paintings_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find an artist"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
+</div>
+
 <!-- <div class="container mt-3 mb-5"> -->
 
   <div class="card-container d-flex">
