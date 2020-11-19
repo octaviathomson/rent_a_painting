@@ -55,12 +55,6 @@ h3 {
   background: white;
 }
 
-// .painting {
-//   // float: right;
-//   // margin-right: 0px 0px 0px 30px;
-//   // display: flex;
-// }
-
 
 .content {
   position: relative;
@@ -86,7 +80,7 @@ h3 {
 .thumb {
   width: 500px;
   position: absolute;
-  left: 50%;
+  left: 30%;
   bottom: 5px;
   transform: translateX(-50%);
   display: flex;
