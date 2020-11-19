@@ -1,5 +1,6 @@
 <div class="container pt-5">
 
+
       <div class="card-white" id="introduction">
 
         <div class="row justify-content-center">
@@ -27,6 +28,9 @@
           <p> £ <%= @painting.price %>per day</p>
         </div>
 
+
+
+
         <% if @painting.user == current_user %>
           <% @bookings.each do |booking| %>
             <p>Your booking requests:</p>
@@ -39,8 +43,9 @@
         <% elsif user_signed_in?%>
           <p>Posted by: <%= @user.first_name %></p>
           <!-- add reviews for the painting owner? -->
-          <%= link_to 'Book', new_painting_booking_path(@painting), class: "btn btn-dark" %> <br>
-
+          <div class="Booking-form">
+            <%= render partial:'bookings/form', locals: { model: [@painting, @booking], url: painting_bookings_path(@painting), verb: :post }%>
+          </div>
         <% end %>
 
 
