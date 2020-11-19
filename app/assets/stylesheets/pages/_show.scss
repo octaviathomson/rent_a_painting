@@ -1,3 +1,4 @@
+
 .card-white {
   background-color: white;
   padding: 40px;
@@ -5,9 +6,15 @@
   border-radius: 4px;
   margin: 20px 0px;
   text-align: center;
+  flex-wrap: wrap;
+  padding-bottom: 20px;
+  height: 760px;
+  width: auto;
 }
 
 .container {
   width: 700px;
   margin: 40px auto;
+  padding-bottom: 200px;
 }
+
