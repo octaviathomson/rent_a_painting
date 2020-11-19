@@ -66,6 +66,7 @@ h3 {
   position: relative;
   width: 100%;
   display: flex;
+  padding-bottom: 20px;
   justify-content: space-between;
 }
 
@@ -82,24 +83,30 @@ h3 {
   padding-right: 5px;
 }
 
-// .thumb {
-//   width: 500px;
-//   position: absolute;
-//   left: 50%;
-//   bottom: 10px;
-//   transform: translateX(-50%);
-//   display: flex;
-// }
+.thumb {
+  width: 500px;
+  position: absolute;
+  left: 50%;
+  bottom: 5px;
+  transform: translateX(-50%);
+  display: flex;
+}
 
-// .thumb li {
-//   list-style: none;
-//   display: inline-block;
-//   margin: 0 20px;
-//   cursor: pointer;
-//   max-width: 60px;
-//   transition: 0.5s;
-// }
+.thumb li {
+  list-style: none;
+  display: inline-block;
+  margin: 0 20px;
+  cursor: pointer;
+  max-width: 60px;
+  transition: 0.5s;
+}
 
-// .thumb li:hover {
-//   transform: translateY(-15px);
-// }
+.thumb li:hover {
+  transform: translateY(-15px);
+}
+
+.thumbsize {
+  max-width: 50px;
+}
+
+
