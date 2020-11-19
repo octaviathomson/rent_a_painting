@@ -1,12 +1,12 @@
 <div class="container">
-  <h1>Your Booking Information</h1>
+    <h1>Your Booking Information</h1>
 
-  <div class="booking-details">
-    <div class="painting-image">
-      <!-- insert cloudinary image -->
-      <%= cl_image_tag(@painting.photo.key,
-        width: 400, height: 300, crop: :fill) %>
-    </div>
+    <div class="booking-details">
+      <div class="painting-image">
+        <!-- insert cloudinary image -->
+        <%= cl_image_tag(@painting.photo.key,
+          width: 400, height: 300, crop: :fill) %>
+      </div>
 
       <% if @booking.status == "pending" %>
         <p>You have requested to book <%=@painting.name%> for the period of <%= @booking.start_date %> to <%= @booking.end_date %></p>
