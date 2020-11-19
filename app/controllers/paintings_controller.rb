@@ -33,6 +33,7 @@ class PaintingsController < ApplicationController
   end
 
   def edit
+    @painting = Painting.find(params[:id])
   end
 
   def update
@@ -44,8 +45,10 @@ class PaintingsController < ApplicationController
   end
 
   def destroy
-    @painting.destroy(painting_params)
-    redirect_to @painting, notice: 'Your painting has been destroy'
+    @painting = Painting.find(params[:id])
+    @painting.destroy
+    flash[:notice] = "Your painting has been destroy"
+    redirect_to paintings_path
   end
 
   private

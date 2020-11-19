@@ -1,4 +1,3 @@
-
-<%= render 'form', painting: @painting %>
+<%= render partial: 'paintings/form', locals: {model: @painting, url: painting_path(@painting), verb: :patch} %>
 <%= link_to 'Show', @painting %> |
 <%= link_to 'Back', paintings_path %>

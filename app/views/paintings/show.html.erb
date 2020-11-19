@@ -34,8 +34,8 @@
             <%= button_to "Approve booking", booking_path(booking) %>
            <% end %>
 
-          <%= link_to 'Edit your listing', edit_painting_path(@painting.bookings), class: "btn btn-dark" %>
-          <%= link_to 'Delete your listing', painting_path(@painting), class: "btn btn-dark", method: :destroy, data: { confirm: "Are you sure you wish to delete your listing?" }  %>
+          <%= link_to 'Edit your listing', edit_painting_path(@painting), class: "btn btn-dark" %>
+          <%= link_to 'Delete your listing', painting_path(@painting), class: "btn btn-dark", method: :delete, data: { confirm: "Are you sure you wish to delete your listing?" }  %>
         <% elsif user_signed_in?%>
           <p>Posted by: <%= @user.first_name %></p>
           <!-- add reviews for the painting owner? -->
