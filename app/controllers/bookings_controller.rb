@@ -4,6 +4,15 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
   end
 
+  def update
+    @booking = Booking.find(params[:id])
+    if @booking.update(booking_params)
+      redirect_to @booking, notice: 'Your booking has been updated!'
+    else
+      render :edit
+    end
+  end
+
   def destroy
     @booking = Booking.find(params[:id])
     @booking.destroy
@@ -18,6 +27,7 @@ class BookingsController < ApplicationController
   def show
     @booking = Booking.find(params[:id])
     @painting = @booking.painting
+    @user = @painting.user
   end
 
   def create
