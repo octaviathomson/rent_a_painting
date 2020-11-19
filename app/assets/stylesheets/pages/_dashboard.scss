@@ -1,34 +1,12 @@
-.grid-container {
+.wrapper{
   display: grid;
-  grid-template-columns: 100px 1fr;
-  grid-template-rows: 50px 1fr 50px;
-  grid-template-areas:
-    "sidenav header"
-    "sidenav main"
-    "sidenav footer";
-  height: 100vh;
 }
 
-/* Give every child element its grid name */
-.header {
-  grid-area: header;
-  background-color: white;
-  text-align: center;
-}
-
-.sidenav {
-  grid-area: sidenav;
-  background-color: white;
-}
-
-.main {
-  grid-area: main;
-  background-color: white;
-}
 
 .first-header {
   margin-left: 50px;
   margin-right: 100px;
+  margin-top: 100px;
   padding: 120px;
   box-shadow: 0 10px 30px rgba(0,0,0,.1);
   color: white;
@@ -45,21 +23,38 @@
   text-shadow: 2px 2px 8px black;
 }
 
-.first-container {
-  display: flex;
-  margin-left: 50px;
-  margin-top: 30px;
-  margin-bottom: 80px;
+
+.profile-painting {
+  justify-content: center;
+  width: 500px !important;
+  background-color: white;
   box-shadow: 0 10px 30px rgba(0,0,0,.1);
-  border-radius: 10px;
+  border-radius: 20px;
+  padding: 50px;
+  margin-right: 50px;
+  margin-left: 100px;
+  text-align: center;
+  margin-bottom: 50px;
 }
 
-.second-container {
-  display: flex;
-  margin-left: 50px;
-  margin-top: 30px;
-  margin-bottom: 100px;
+.profile-bookings {
+  justify-content: center;
+  width: 500px;
+  background-color: white;
   box-shadow: 0 10px 30px rgba(0,0,0,.1);
-  border-radius: 10px;
+  border-radius: 20px;
+  padding: 50px;
+  margin-right: 10px;
+  margin-left: 120px;
+  margin-bottom: 50px;
+  text-align: center;
 }
 
+.card-product {
+  background-color: white;
+  margin: 20px;
+  width: 440px !important;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.1);
+  border-radius: 4px;
+}
