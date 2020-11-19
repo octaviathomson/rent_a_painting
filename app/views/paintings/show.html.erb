@@ -4,6 +4,8 @@
 
         <div class="row justify-content-center">
           <h1><%= @painting.name %></h1>
+
+
         </div>
 
 
@@ -16,12 +18,13 @@
         </div>
 
         <div class="right-side">
-          <h6>Description</h6>
           <p><%= @painting.description %></p>
+          <h6>Location</h6>
+          <p><%= @painting.address %></p>
+
 
           <h6>Price</h6>
           <p> £ <%= @painting.price %>per day</p>
-
         </div>
 
         <% if @painting.user == current_user %>
@@ -30,12 +33,14 @@
             <%= booking.status %>
             <%= button_to "Approve booking", booking_path(booking) %>
            <% end %>
+
           <%= link_to 'Edit your listing', edit_painting_path(@painting.bookings), class: "btn btn-dark" %>
-          <%= link_to 'Delete your listing', painting_path(@painting), class: "btn btn-dark", method: :delete, data: { confirm: "Are you sure you wish to delete your listing?" }  %>
+          <%= link_to 'Delete your listing', painting_path(@painting), class: "btn btn-dark", method: :destroy, data: { confirm: "Are you sure you wish to delete your listing?" }  %>
         <% elsif user_signed_in?%>
           <p>Posted by: <%= @user.first_name %></p>
           <!-- add reviews for the painting owner? -->
           <%= link_to 'Book', new_painting_booking_path(@painting), class: "btn btn-dark" %> <br>
+
         <% end %>
 
 

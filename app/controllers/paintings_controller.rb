@@ -17,6 +17,12 @@ class PaintingsController < ApplicationController
 
   def index
     @paintings = Painting.all
+       @markers = @paintings.geocoded.map do |painting|
+      {
+        lat: painting.latitude,
+        lng: painting.longitude
+      }
+    end
   end
 
   def show
@@ -44,6 +50,6 @@ class PaintingsController < ApplicationController
   private
 
   def painting_params
-    params.require(:painting).permit(:name, :artist, :price, :description, :photo)
+    params.require(:painting).permit(:name, :artist, :price, :address, :description, :photo)
   end
 end
