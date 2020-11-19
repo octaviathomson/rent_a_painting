@@ -1,6 +1,7 @@
-<div class="container pt-5">
-  <div class="row justify-content-center">
-    <div class="col-12 col-sm-4 col-lg-4">
+<div class="container">
+  <!-- <div class="row justify-content-center"> -->
+    <div class="card-white">
+    <!-- <div class="col-6 col-sm-4 col-lg-4"> -->
 
       <h2>Log in</h2>
 
@@ -14,7 +15,7 @@
                       required: false,
                       input_html: { autocomplete: "current-password" } %>
           <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-        </div>
+
 
         <div class="row justify-content-center">
 
@@ -23,10 +24,12 @@
           </div>
           <% end %>
         </div>
+        </div>
 
 
       <%= render "devise/shared/links" %>
 
+      <!-- </div> -->
     </div>
   </div>
 </div>
