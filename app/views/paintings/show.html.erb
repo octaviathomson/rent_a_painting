@@ -35,7 +35,25 @@
           <% @bookings.each do |booking| %>
             <p>Your booking requests:</p>
             <%= booking.status %>
-            <%= button_to "Approve booking", booking_path(booking) %>
+
+
+    <%= simple_form_for booking do |f| %>
+
+        <%= f.input :status, input_html: {value: "Approved"}, as: :hidden %>
+
+            <%= f.submit "Approve", class: "btn btn-outline-dark  w-70"%>
+
+           <% end %>
+    <%= simple_form_for booking do |f| %>
+
+        <%= f.input :status, input_html: {value: "Declined"}, as: :hidden %>
+
+            <%= f.submit "Decline", class: "btn btn-outline-dark  w-70"%>
+
+    <% end %>
+
+
+
            <% end %>
 
           <%= link_to 'Edit your listing', edit_painting_path(@painting), class: "btn btn-dark" %>
