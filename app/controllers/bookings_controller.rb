@@ -28,6 +28,15 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     @painting = @booking.painting
     @user = @painting.user
+    @markers = []
+    if @painting.latitude
+      @markers = [
+        {
+          lat: @painting.latitude,
+          lng: @painting.longitude,
+          infoWindow: render_to_string(partial: "paintings/info_window", locals: { painting: @painting })
+        }]
+    end
   end
 
   def create
