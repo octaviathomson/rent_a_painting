@@ -35,6 +35,10 @@ class PaintingsController < ApplicationController
     @booking = Booking.new
     @bookings = @painting.bookings
     @user = @painting.user
+
+    @bookings.each do |booking|
+      @renter = booking.user.first_name
+    end
   end
 
   def edit

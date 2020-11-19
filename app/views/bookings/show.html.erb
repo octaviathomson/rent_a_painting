@@ -1,5 +1,4 @@
 <div class="container">
-    <h1>Your Booking Information</h1>
 
     <div class="booking-details">
       <div class="painting-image">
@@ -7,27 +6,37 @@
         <%= cl_image_tag(@painting.photo.key,
           width: 400, height: 300, crop: :fill) %>
       </div>
-
-      <% if @booking.status == "pending" %>
-        <p>You have requested to book <%=@painting.name%> for the period of <%= @booking.start_date %> to <%= @booking.end_date %></p>
-        <p><%= @booking.status %> - awaiting approval from <%= @user.first_name %></p>
-        <%= link_to 'Make changes to your booking request', edit_booking_path(@booking) %><br>
-        <%= link_to 'Cancel my booking request', booking_path(@booking), method: :delete, data: { confirm: "Are you sure you wish to cancel your booking?" } %> <br>
-
-      <% elsif @booking.status == "Approved" %>
-        <p>All set! Your booking request for <%=@painting.name%> has been <%=@booking.status%> by <%=@user.first_name%>!</p>
-        <p>For the period of <%= @booking.start_date %> to <%= @booking.end_date %></p>
-        <p>Please collect your painting from <%= @painting.address %></p>
-        <div id="map"
-           style="width: 50%; height: 300px;"
-           data-markers="<%= @markers.to_json %>"
-           data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-        </div>
-        <%= link_to 'Make changes to your booking', edit_booking_path(@booking) %><br>
-        <%= link_to 'Cancel my booking', booking_path(@booking), method: :delete, data: { confirm: "Are you sure you wish to cancel your booking?" } %> <br>
+      <% if @painting.user == current_user %>
+        <h1>All done <%= @user.first_name %>!</h1>
+        <p>You have <%= @booking.status.downcase %> this booking request. </p>
+        <% if @booking.status == "Approved" %>
+          <p><%= @painting.name %> has been booked by <%= @booking.user.first_name %> from <%= @booking.start_date %> till <%= @booking.end_date %>.</p>
+        <% else %>
+          <p><%= @booking.user.first_name %>'s request for <%= @painting.name %> has been declined. </p>
+        <% end %>
       <% else %>
-        <p>Unfortunately <%=@user.first_name%> has <%=@booking.status%> your booking request!</p>
-        <%= link_to 'Booking another painting', paintings_path %>
+        <h1>Your Booking Information </h1>
+        <% if @booking.status == "pending" %>
+          <p>You have requested to book <%=@painting.name%> for the period of <%= @booking.start_date %> to <%= @booking.end_date %></p>
+          <p>Your request is <%= @booking.status %> and awaiting approval from <%= @user.first_name %></p>
+          <%= link_to 'Make changes to your booking request', edit_booking_path(@booking) %><br>
+          <%= link_to 'Cancel my booking request', booking_path(@booking), method: :delete, data: { confirm: "Are you sure you wish to cancel your booking?" } %> <br>
+
+        <% elsif @booking.status == "Approved" %>
+          <p>All set! Your booking request for <%=@painting.name%> has been <%=@booking.status%> by <%=@user.first_name%>!</p>
+          <p>Please collect your painting from <%= @painting.address %> on <%= @booking.start_date %></p>
+          <p>The painting must be returned by <%= @booking.end_date %></p>
+          <div id="map"
+             style="width: 50%; height: 300px;"
+             data-markers="<%= @markers.to_json %>"
+             data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+          </div>
+          <%= link_to 'Make changes to your booking', edit_booking_path(@booking) %><br>
+          <%= link_to 'Cancel my booking', booking_path(@booking), method: :delete, data: { confirm: "Are you sure you wish to cancel your booking?" } %> <br>
+        <% else %>
+          <p>Unfortunately <%=@user.first_name%> has <%=@booking.status%> your booking request!</p>
+          <%= link_to 'Booking another painting', paintings_path %>
+        <% end %>
       <% end %>
   </div>
   <%= link_to 'Return to your dashboard', dashboard_path %>

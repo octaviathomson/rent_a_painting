@@ -4,13 +4,16 @@
   <aside class="sidenav"></aside>
   <main class="main">
 
+
+
     <div class="first-header">
-      <h1>Hi <%= @user.first_name %>!</h1>
+      <h1>Hi <%= @user.first_name %>! </h1>
+
       <br> <h3> Welcome to your <strong>Dashboard</strong></h3>
     </div>
 
     <div class="row justify-content-center">
-      <h2>Your bookings</h2>
+      <h2>Your bookings </h2>
     </div>
 
     <div class="first-container">
@@ -40,17 +43,15 @@
     <div class="second-container">
       <div class= "Your listings">
         <% if user_signed_in? && @user.paintings.present? %>
-            <% @paintings.each do |painting| %><br>
-              <%= link_to "View your listing for #{painting.name.capitalize}", painting_path(painting) %><br>
-                <% if painting.photo.attached? %>
-                  <%= cl_image_tag(painting.photo.key,
-                  width: 400, height: 300, crop: :fill) %> <br>
-                <% end %>
+          <% @user_painting.each do |painting|%><br>
+            <% if painting.photo.attached? %>
+              <%= cl_image_tag(painting.photo.key,
+              width: 200, height: 150, crop: :fill) %>
             <% end %>
-            <% @incoming_bookings.each do |in_booking|%>
-              <%= in_booking.status %>
-              <p>is booked from <%= in_booking.start_date %> until <%= in_booking.end_date %> </p>
-            <% end %>
+            <%= painting.name %><br>
+            <%= link_to 'View listing details', painting_path(painting) %>
+          <% end %>
+
         <% else %>
           <p> You have not uploaded any paintings yet!</p>
           <%= link_to 'Upload your own paintings for rent', new_painting_path %><br>
@@ -59,6 +60,8 @@
     </div>
 
     </main>
+
+
 
   <footer class="footer">
 
