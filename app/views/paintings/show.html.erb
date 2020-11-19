@@ -60,9 +60,11 @@
         <% elsif user_signed_in?%>
           <p>Posted by: <%= @user.first_name %></p>
           <!-- add reviews for the painting owner? -->
+
           <div class="Booking-form">
             <%= render partial:'bookings/form', locals: { model: [@painting, @booking], url: painting_bookings_path(@painting), verb: :post }%>
           </div>
+
         <% end %>
 
 
