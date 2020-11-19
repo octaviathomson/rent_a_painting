@@ -30,19 +30,14 @@
   background-color: white;
 }
 
-.footer {
-  grid-area: footer;
-  background-color: #3C403D;
-  text-align: center;
-}
-
 
 .main-header {
   display: flex;
   justify-content: space-between;
   margin: 20px;
   padding: 20px;
-  height: 150px;
-  background-color: #e3e4e6;
+  box-shadow: 0 10px 30px rgba(0,0,0,.1);
+  background-color: white;
   color: slategray;
+  border-radius: 4px;
 }

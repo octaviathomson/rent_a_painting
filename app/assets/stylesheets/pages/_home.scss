@@ -5,6 +5,23 @@
 .banner, {
   padding: 200px 100px;
 }
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+
+}
+section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  padding: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .row {
   padding: 0px 0px;
 }
@@ -38,8 +55,51 @@ h3 {
   background: white;
 }
 
-.painting {
-  // float: right;
-  margin-right: 0px 0px 0px 30px;
+// .painting {
+//   // float: right;
+//   // margin-right: 0px 0px 0px 30px;
+//   // display: flex;
+// }
+
+
+.content {
+  position: relative;
+  width: 100%;
   display: flex;
+  justify-content: space-between;
 }
+
+.content .textBox {
+  position: relative;
+  max-width: 600px;
+  margin-top: 170px;
+}
+
+.content .imgBox {
+  width: 500px;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 5px;
+}
+
+// .thumb {
+//   width: 500px;
+//   position: absolute;
+//   left: 50%;
+//   bottom: 10px;
+//   transform: translateX(-50%);
+//   display: flex;
+// }
+
+// .thumb li {
+//   list-style: none;
+//   display: inline-block;
+//   margin: 0 20px;
+//   cursor: pointer;
+//   max-width: 60px;
+//   transition: 0.5s;
+// }
+
+// .thumb li:hover {
+//   transform: translateY(-15px);
+// }
