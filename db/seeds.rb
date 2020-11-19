@@ -31,7 +31,7 @@ image_results.each do |image_result|
     artist: Faker::Artist.name,
     address: Faker::Address.full_address
     price: rand(1..5000),
-    description: Faker::Movie.quote)
+    description: Faker::Marketing.buzzwords)
   new_painting.photo.attach(io: file, filename: 'unsplash.png', content_type: 'image/png')
   new_painting.save!
 end
