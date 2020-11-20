@@ -1,12 +1,12 @@
 <div class="container-show" style="background-image: linear-gradient(rgba(230,230,230,0.5), rgba(0,0,0,0.2)), url('<%= cl_image_path @painting.photo.key %>')">
-<div class="container pt-5" >
+  <div class="container" >
 
 
       <div class="card-white" id="introduction">
 
-        <div class="row justify-content-center">
-          <h1><%= @painting.name %></h1>
-        </div>
+
+          <h1><%= @painting.name %></h1><br>
+
 
         <div class="painting-image">
           <!-- insert cloudinary image -->
@@ -61,5 +61,5 @@
             <%= link_to 'Back', paintings_path, class: "btn btn-light" %>
         </div>
       </div>
-</div>
+  </div>
 </div>
