@@ -1,0 +1,47 @@
+.container{
+  justify-content: center;
+  width: 100%;
+  background-color: transparent;
+  display: flex;
+}
+
+.card-white {
+  display: flex;
+  justify-content: center;
+  width: 1000px;
+
+}
+.form-actions {
+  width: 250px;
+  .btn {
+    background: #62C674;
+    font-size:16px;
+    color: #f0f0f0;
+  }
+  .other-links {
+    background: transparent;
+    font-size:16px;
+    color: #909090;
+    font-size: 8px;
+    padding-top: 24px;
+
+    a{
+      color: #909090;
+      padding-top: 16px;
+
+    }
+  }
+}
+
+.login h2 {
+  font-family: Poppins;
+  font-weight: bold;
+  font-size: 24px;
+  color: #333;
+  text-transform: capitalize;
+  background: transparent;
+  padding-bottom: 48px;
+  // justify-content: center;
+}
+
+
