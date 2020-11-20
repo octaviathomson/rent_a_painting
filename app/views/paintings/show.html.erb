@@ -21,7 +21,7 @@
           <p><%= @painting.address %></p>
 
           <h6>Price</h6>
-          <p> £ <%= @painting.price %> per day</p>
+          <p> £ <%= @painting.price %>/per day</p>
         </div>
         <% if @painting.user == current_user %>
           <% if @bookings.empty? %>
