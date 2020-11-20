@@ -1,8 +1,6 @@
 <div class="container">
-  <!-- <div class="row justify-content-center"> -->
     <div class="card-white">
-    <!-- <div class="col-6 col-sm-4 col-lg-4"> -->
-      <div class="login">
+      <div class="form-title">
         <h2>Log in</h2>
 
         <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -22,14 +20,13 @@
           <div class="form-actions">
             <%= f.button :submit, "Log in" %> <br>
             <div class="other-links">
-            <%= render "devise/shared/links" %>
+              <%= render "devise/shared/links" %>
+            </div>
           </div>
-          <% end %>
+        <% end %>
 
         </div>
       </div>
-    </div>
-      <!-- </div> -->
     </div>
   </div>
 </div>

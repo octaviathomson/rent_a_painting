@@ -1,18 +1,21 @@
 .container{
   justify-content: center;
   width: 100%;
-  background-color: transparent;
+  background-color: linear-gradient(to right, #F8F5F5 65%, white 50%);
   display: flex;
+  margin-bottom: 20px;
 }
 
 .card-white {
   display: flex;
   justify-content: center;
   width: 1000px;
-
 }
+
+
 .form-actions {
   width: 250px;
+  // justify-content: center;
   .btn {
     background: #62C674;
     font-size:16px;
@@ -33,7 +36,7 @@
   }
 }
 
-.login h2 {
+.form-title h2 {
   font-family: Poppins;
   font-weight: bold;
   font-size: 24px;
