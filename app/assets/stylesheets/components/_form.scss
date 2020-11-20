@@ -1,7 +1,6 @@
 .container{
   justify-content: center;
   width: 100%;
-  background-color: linear-gradient(to right, #F8F5F5 65%, white 50%);
   display: flex;
   margin-bottom: 20px;
 }
@@ -10,6 +9,7 @@
   display: flex;
   justify-content: center;
   width: 1000px;
+  // background-color: #F8F5F5;
 }
 
 
@@ -17,14 +17,14 @@
   width: 250px;
   // justify-content: center;
   .btn {
-    background: #62C674;
+    background: #909090;
     font-size:16px;
     color: #f0f0f0;
   }
   .other-links {
     background: transparent;
     font-size:16px;
-    color: #909090;
+    color: #f0f0f0;
     font-size: 8px;
     padding-top: 24px;
 
