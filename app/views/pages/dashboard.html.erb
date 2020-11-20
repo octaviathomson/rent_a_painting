@@ -12,8 +12,6 @@
       <br> <h3> Welcome to your <strong>Dashboard</strong></h3>
     </div>
 
-    <div class="row justify-content-center">
-      <h2>Your bookings </h2>
 
 <div class="d-flex">
 
@@ -22,21 +20,30 @@
     <div class="row justify-content-center">
       <h2>Your upcoming bookings</h2> <hr />
     </div>
-    
-  <% if user_signed_in? && @user.bookings.present? %>
-    <% @bookings.each do |booking| %>
-      <h6><%= booking.painting.name %></h6>
-      <p><%= booking.start_date %> until <%= booking.end_date %> </p>
-        <%= link_to 'View Details', booking_path(booking)%><br>
-          <% if booking.painting.photo.attached? %>
-              <%= cl_image_tag(booking.painting.photo.key,
-                width: 250, height: 150, crop: :fill) %>
+
+    <div class="scroll">
+
+      <div class="card-container">
+
+      <% if user_signed_in? && @user.bookings.present? %>
+        <% @bookings.each do |booking| %>
+        <div class="card mb-5 ">
+              <% if booking.painting.photo.attached? %>
+                  <%= cl_image_tag(booking.painting.photo.key,
+                   class: "card-img-top", width: 250, height: 150, crop: :fill) %>
+              <% end %>
+            <h6><%= booking.painting.name %></h6>
+            <p><%= booking.start_date %> until <%= booking.end_date %> </p>
+              <%= link_to 'View Details', booking_path(booking)%><br>
+          </div>
           <% end %>
-      <% end %>
-      <% else %>
-        <p>You do not have any bookings yet!</p>
-        <%= link_to 'Browse paintings for rent', paintings_path %><br>
-      <% end %>
+          <% else %>
+            <p>You do not have any bookings yet!</p>
+            <%= link_to 'Browse paintings for rent', paintings_path %><br>
+          <% end %>
+      </div>
+
+    </div>
 
   </div>
 
@@ -46,31 +53,37 @@
       <h2>Your Paintings</h2> <hr />
     </div>
 
-    <div class= "Your listings">
-           <% if user_signed_in? && @user.paintings.present? %>
-          <% @user_painting.each do |painting|%><br>
-            <% if painting.photo.attached? %>
-              <%= cl_image_tag(painting.photo.key,
-              width: 200, height: 150, crop: :fill) %>
-            <% end %>
-            <%= painting.name %><br>
-            <%= link_to 'View listing details', painting_path(painting) %>
-          <% end %>
+    <div class="scroll">
 
-        <% else %>
-          <p> You have not uploaded any paintings yet!</p>
-          <%= link_to 'Upload your own paintings for rent', new_painting_path %><br>
-        <% end %>
+      <div class= "card-container">
+             <% if user_signed_in? && @user.paintings.present? %>
+              <% @user_painting.each do |painting|%>
+             <div class="card mb-5 ">
+                <% if painting.photo.attached? %>
+                  <%= cl_image_tag(painting.photo.key,
+                  width: 200, height: 150, crop: :fill) %>
+                <% end %>
+                <h6><%= painting.name %></h6>
+                <%= link_to 'View listing details', painting_path(painting) %>
+            </div>
+            <% end %>
+
+          <% else %>
+            <p> You have not uploaded any paintings yet!</p>
+            <%= link_to 'Upload your own paintings for rent', new_painting_path %><br>
+          <% end %>
       </div>
+
+    </div>
 
   </div>
 
 </div>
 
-    <footer class="footer">
-      <div class="row justify-content-center">
-        <%= link_to 'Back', paintings_path %>
-
-        <%= link_to "log out", destroy_user_session_path, method: :delete %>
-      </div>
-    </footer>
+<footer class="footer">
+  <div class="row justify-content-center">
+    <h6><%= link_to 'Back', paintings_path %></h6>
+    &nbsp; &nbsp;
+    <h6><%= link_to "Log out", destroy_user_session_path, method: :delete %></h6>
+  </div>
+</footer>
