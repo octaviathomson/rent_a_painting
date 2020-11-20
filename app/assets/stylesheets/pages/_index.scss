@@ -7,11 +7,12 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 18px;
+  text-align: center;
+  width: 55%;
 }
 
 .card-container {
   flex-wrap: wrap;
-  justify-content: center;
   margin-top: 50px;
 }
 
@@ -20,6 +21,34 @@
 .image-display {
   margin-bottom: 30px;
   width: 300px;
+}
+
+.search-bar {
+  display: flex;
+  justify-content: center;
+  .btn-primary {
+    margin: 8px;
+    color: #fff;
+    background-color: #343a40;
+    border-color: #343a40;
+  }
+  margin-top: 8px;
+}
+
+#map {
+  position: sticky;
+  top: 20px;
+  border-radius: 6px;
+}
+
+.info {
+  padding: auto;
+  border-bottom: 1px solid black;
+  padding-bottom: 30px;
+}
+
+.index-page-search {
+  width: 400px;
 }
 // .btn {
 //   border-radius: 50px;
