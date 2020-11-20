@@ -1,3 +1,9 @@
-<%= render partial: 'paintings/form', locals: {model: @painting, url: painting_path(@painting), verb: :patch} %>
-<%= link_to 'Show', @painting %> |
-<%= link_to 'Back', paintings_path %>
+<div class="container">
+  <div class="card-white">
+    <div class="row justify-content-center">
+      <%= render partial: 'paintings/form', locals: {model: @painting, url: painting_path(@painting), verb: :patch} %>
+      <%= link_to 'Show', @painting %> |
+      <%= link_to 'Back', paintings_path %>
+   </div>
+  </div>
+</div>
