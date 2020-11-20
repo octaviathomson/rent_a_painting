@@ -14,35 +14,40 @@
 
     <div class="row justify-content-center">
       <h2>Your bookings </h2>
-    </div>
 
-    <div class="first-container">
-          UPCOMING BOOKINGS
-      <div class= "upcoming-bookings">
-        <% if user_signed_in? && @user.bookings.present? %>
-          <% @bookings.each do |booking| %>
-            <p><%= booking.painting.name %></p>
-            <p><%= booking.start_date %> until <%= booking.end_date %> </p>
-            <%= link_to 'View Details', booking_path(booking)%><br>
-            <% if booking.painting.photo.attached? %>
-              <%= cl_image_tag(booking.painting.photo.key,
-              width: 400, height: 300, crop: :fill) %>
-            <% end %>
-          <% end %>
-        <% else %>
-          <p>You do not have any bookings yet!</p>
-          <%= link_to 'Browse paintings for rent', paintings_path %><br>
-        <% end %>
-      </div>
-    </div>
+<div class="d-flex">
+
+  <div class="profile-bookings">
 
     <div class="row justify-content-center">
-      <h2>Your Paintings</h2>
+      <h2>Your upcoming bookings</h2> <hr />
+    </div>
+    
+  <% if user_signed_in? && @user.bookings.present? %>
+    <% @bookings.each do |booking| %>
+      <h6><%= booking.painting.name %></h6>
+      <p><%= booking.start_date %> until <%= booking.end_date %> </p>
+        <%= link_to 'View Details', booking_path(booking)%><br>
+          <% if booking.painting.photo.attached? %>
+              <%= cl_image_tag(booking.painting.photo.key,
+                width: 250, height: 150, crop: :fill) %>
+          <% end %>
+      <% end %>
+      <% else %>
+        <p>You do not have any bookings yet!</p>
+        <%= link_to 'Browse paintings for rent', paintings_path %><br>
+      <% end %>
+
+  </div>
+
+  <div class="profile-painting">
+
+    <div class="row justify-content-center">
+      <h2>Your Paintings</h2> <hr />
     </div>
 
-    <div class="second-container">
-      <div class= "Your listings">
-        <% if user_signed_in? && @user.paintings.present? %>
+    <div class= "Your listings">
+           <% if user_signed_in? && @user.paintings.present? %>
           <% @user_painting.each do |painting|%><br>
             <% if painting.photo.attached? %>
               <%= cl_image_tag(painting.photo.key,
@@ -57,18 +62,15 @@
           <%= link_to 'Upload your own paintings for rent', new_painting_path %><br>
         <% end %>
       </div>
-    </div>
 
-    </main>
+  </div>
 
-
-
-  <footer class="footer">
-
-    <div class="row justify-content-center">
-      <%= link_to 'Back', paintings_path %>
-
-      <%= link_to "log out", destroy_user_session_path, method: :delete %>
-    </div>
-  </footer>
 </div>
+
+    <footer class="footer">
+      <div class="row justify-content-center">
+        <%= link_to 'Back', paintings_path %>
+
+        <%= link_to "log out", destroy_user_session_path, method: :delete %>
+      </div>
+    </footer>
