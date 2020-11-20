@@ -77,7 +77,7 @@ h3 {
 .thumb {
   width: 500px;
   position: absolute;
-  left: 30%;
+  left: 35%;
   bottom: 5px;
   transform: translateX(-50%);
   display: flex;
@@ -86,7 +86,7 @@ h3 {
 .thumb li {
   list-style: none;
   display: inline-block;
-  margin: 0 20px;
+  margin: 0 30px;
   cursor: pointer;
   max-width: 60px;
   transition: 0.5s;
