@@ -19,40 +19,42 @@
           <p><%= @painting.description %></p>
           <h6>Location</h6>
           <p><%= @painting.address %></p>
+
           <h6>Price</h6>
-          <p> £ <%= @painting.price %>per day</p>
+          <p> £ <%= @painting.price %>/per day</p>
         </div>
-
         <% if @painting.user == current_user %>
-          <% @bookings.each do |booking| %>
-            <p>Your booking requests:</p>
-            <%= booking.status %>
-
-            <% if booking.status == "pending" %>
-              <%= simple_form_for booking do |f| %>
-                <%= f.input :status, input_html: {value: "Approved"}, as: :hidden %>
-                <%= f.submit "Approve", class: "btn btn-outline-dark  w-70"%>
-              <% end %>
-              <%= simple_form_for booking do |f| %>
-                <%= f.input :status, input_html: {value: "Declined"}, as: :hidden %>
-                <%= f.submit "Decline", class: "btn btn-outline-dark  w-70"%>
-              <% end %>
-            <% elsif booking.status == "Approved" %>
-              <p>You have <%=booking.status%> this booking</p>
-            <% else %>
-              <p>You have <%=booking.status%> this booking</p>
+          <% if @bookings.empty? %>
+            <p>You do not have any booking requests yet!</p>
+          <% else %>
+            <% @bookings.each do |booking| %>
+              <p>Your booking requests:</p>
+              <p><%= @renter%> has requested to book <%= @painting.name %> for the period of <%= booking.start_date %> to <%= @booking.end_date %></p>
+              <%= booking.status %>
+                <% if booking.status == "pending" %>
+                  <%= simple_form_for booking do |f| %>
+                    <%= f.input :status, input_html: {value: "Approved"}, as: :hidden %>
+                    <%= f.submit "Approve", class: "btn btn-outline-dark  w-70"%>
+                  <% end %>
+                  <%= simple_form_for booking do |f| %>
+                    <%= f.input :status, input_html: {value: "Declined"}, as: :hidden %>
+                    <%= f.submit "Decline", class: "btn btn-outline-dark  w-70"%>
+                  <% end %>
+                <% elsif booking.status == "Approved" %>
+                  <p>You have <%=booking.status%> this booking</p>
+                <% else %>
+                  <p>You have <%=booking.status%> this booking</p>
+                <% end %>
             <% end %>
           <% end %>
           <%= link_to 'Edit your listing', edit_painting_path(@painting), class: "btn btn-dark" %>
           <%= link_to 'Delete your listing', painting_path(@painting), class: "btn btn-dark", method: :delete, data: { confirm: "Are you sure you wish to delete your listing?" }  %>
         <% elsif user_signed_in?%>
           <p>Posted by: <%= @user.first_name %></p>
-          <!-- add reviews for the painting owner? -->
           <div class="Booking-form">
             <%= render partial:'bookings/form', locals: { model: [@painting, @booking], url: painting_bookings_path(@painting), verb: :post }%>
           </div>
         <% end %>
-
 
         <div class="row justify-content-center">
             <%= link_to 'Back', paintings_path, class: "btn btn-light" %>

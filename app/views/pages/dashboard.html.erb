@@ -1,8 +1,19 @@
+<div class="grid-container">
+  <header class="header">
+  </header>
+  <aside class="sidenav"></aside>
+  <main class="main">
 
-<div class="first-header">
-  <h1>Hi <%= @user.first_name %>!</h1>
-  <br> <h3> Welcome to your <strong>Dashboard</strong></h3>
-</div>
+
+
+    <div class="first-header">
+      <h1>Hi <%= @user.first_name %>! </h1>
+
+      <br> <h3> Welcome to your <strong>Dashboard</strong></h3>
+    </div>
+
+    <div class="row justify-content-center">
+      <h2>Your bookings </h2>
 
 <div class="d-flex">
 
@@ -11,9 +22,7 @@
     <div class="row justify-content-center">
       <h2>Your upcoming bookings</h2> <hr />
     </div>
-
-
-
+    
   <% if user_signed_in? && @user.bookings.present? %>
     <% @bookings.each do |booking| %>
       <h6><%= booking.painting.name %></h6>
@@ -37,22 +46,18 @@
       <h2>Your Paintings</h2> <hr />
     </div>
 
-
-
     <div class= "Your listings">
-      <% if user_signed_in? && @user.paintings.present? %>
-        <% @paintings.each do |painting| %><br>
-          <%= link_to "View your listing for #{painting.name.capitalize}", painting_path(painting) %><br>
+           <% if user_signed_in? && @user.paintings.present? %>
+          <% @user_painting.each do |painting|%><br>
             <% if painting.photo.attached? %>
               <%= cl_image_tag(painting.photo.key,
-                width: 400, height: 300, crop: :fill) %> <br>
+              width: 200, height: 150, crop: :fill) %>
             <% end %>
+            <%= painting.name %><br>
+            <%= link_to 'View listing details', painting_path(painting) %>
           <% end %>
-          <% @incoming_bookings.each do |in_booking|%>
-            <%= in_booking.status %>
-            <p>is booked from <%= in_booking.start_date %> until <%= in_booking.end_date %> </p>
-          <% end %>
-          <% else %>
+
+        <% else %>
           <p> You have not uploaded any paintings yet!</p>
           <%= link_to 'Upload your own paintings for rent', new_painting_path %><br>
         <% end %>
@@ -69,6 +74,3 @@
         <%= link_to "log out", destroy_user_session_path, method: :delete %>
       </div>
     </footer>
-
-
-
